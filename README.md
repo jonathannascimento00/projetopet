@@ -21,7 +21,7 @@ Se você não quiser alterar a senha do usuário root, aguarde um pouquinho, poi
 
 Agora será necessário clonar este repositório. No seu terminal/cmd, digite o seguinte comando:
 ```bash
-$ git clone <https://github.com/jonathannascimento00/projetoPet>
+$ git clone https://github.com/jonathannascimento00/projetoPet
 ```
 
 Ainda pelo terminal, acesse a pasta do projeto com o comando:
