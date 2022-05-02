@@ -1,0 +1,10 @@
+.landing-page{
+    background-image: url('../img/cat-dog.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    min-height: 100vh;
+}
+
+.conteudo{
+    padding: 10px 25% 0 25%;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SGPS - Sistema Gerenciador de PetShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="/css/style.css" rel="stylesheet">
+    
+</head>
+<% data.forEach(function(animal){ %>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand">SGPS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Cadastrar
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="/cadastraDono">Donos</a>
+                  <a class="dropdown-item" href="/cadastraPet">Pets</a>
+                </div>
+              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Listar
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/consultaDono">Donos</a>
+                <a class="dropdown-item" href="/consultaPet">Pets</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    
+    <div class="conteudo">
+    <h1>Ficha cadastral - pet</h1>
+            <div class="form-group">
+                <label for="nomePet">Nome do pet:</label>
+                <label><%= animal.nome_animal%></label>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="dono">Dono do pet:</label>
+                    <label><%= animal.nome%></label>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="nome">Idade do pet:</label>
+                    <label><%= animal.idade_animal %> ano(s)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="especie">Espécie:</label>
+                    <label><%= animal.nome_especie %></label>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="especie">Raça:</label>
+                    <label><%= animal.nome_raca %></label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-3">
+                    <a href="/editarPet/<%= animal.id_animal%>" class="btn btn-success btn-sm">Editar</a>
+                </div>
+                <div class="form-group col-sm-3">
+                    <a href="/deletePet/<%= animal.id_animal %>" class="btn btn-danger btn-sm" onclick="return confirm('Você tem certeza que quer deletar o registro?')" >Deletar</a>
+                </div>
+                <div class="form-group col-sm-3">
+                    <a href="/consultaPet" class="btn btn-info btn-sm">Voltar</a>
+                </div>
+            </div>
+        </form>
+        </div>
+        <script src="/js/index.js"></script>
+</body>
+<% })%>
+</html>

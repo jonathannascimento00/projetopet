@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cadastro de Pets | SGPS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand">SGPS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Cadastrar
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="/cadastraDono">Donos</a>
+                  <a class="dropdown-item" href="/cadastraPet">Pets</a>
+                </div>
+              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Listar
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/consultaDono">Donos</a>
+                <a class="dropdown-item active" href="#">Pets</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <h1>Consulta de pets</h1>
+    <p>Veja todos os pets cadastrados no sistema:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Nome do pet</td>
+                <td>Idade</td>
+                <td>Raça</td>
+                <td>Espécie</td>
+                <td>Nome do dono</td>
+                <td>Telefone para contato</td>
+                <td>Ações</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function (details){ %>
+                <tr>
+                    <td><%= details.nome_animal %></td>
+                    <td><%= details.idade_animal %></td>
+                    <td><%= details.nome_raca %></td>
+                    <td><%= details.nome_especie %></td>
+                    <td><%= details.nome %></td>
+                    <td><%= details.telefone %></td>
+                    <td>
+                        <a href="/visualizaPet/<%= details.id_animal %>" class="btn btn-info">Visualizar</a>
+                        <a href="/editarPet/<%= details.id_animal %>" class="btn btn-success">Atualizar</a> 
+                        <a href="/deletePet/<%= details.id_animal %>" class="btn btn-danger" onclick="return confirm('Você tem certeza que quer deletar o registro?')" >Deletar</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
